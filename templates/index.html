@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style.css" /> <!-- link CSS stylesheet -->
+    <title>Please rate your service</title> <!-- Title of Webpage -->
+  </head>
+  <body>
+    <div class="container"> <!-- CSS class Container for this division of webpage -->
+      <img src="../static/logo.png" alt="Lexus" class="logo" />  <!-- import logo image from static -->
+      {% if message %} <!-- If message exists in app.py-->
+      <p class="message">{{ message | safe }}</p> <!-- Display the message here as paragraph-->
+      {% endif %}
+      <form action="/submit" method="POST"> <!--form data will be send to /submit with HTTP request POST -->
+        <div class="form-group"> <!--CSS class form-group for this division of webpage -->
+          <h3>Customer Name</h3>
+          <input
+            type="text" 
+            name="customer"   
+            placeholder="Name of vehicle owner"
+          /> <!-- text type input tab-->
+        </div>
+        <div class="form-group"> <!--CSS class form-group for this division of webpage -->
+          <h3>Dealer</h3>
+          <select name="dealer"> <!-- Drop down menu to select dealer -->
+            <option value="">Select Dealer</option> <!-- value is kept empty to disable first option-->
+            <option value="Sushant P ">Sushant P</option> <!--Dealer name-->
+            <option value="Ravi k">Ravi K</option> <!--Dealer name-->
+            <option value="Vidya T">Vidya T</option> <!--Dealer name-->
+            <option value="Aman R">Aman R</option> <!--Dealer name-->
+          </select>
+        </div>
+        <div class="form-group"> <!--CSS class form-group for this division of webpage -->
+          <h3>Please rate your dealer</h3>
+          <input type="radio" name="rating" value="1" /> 1 <!-- Radio type button to select the rating-->
+          <input type="radio" name="rating" value="2" /> 2
+          <input type="radio" name="rating" value="3" /> 3
+          <input type="radio" name="rating" value="4" /> 4
+          <input type="radio" name="rating" value="5" /> 5
+          <input type="radio" name="rating" value="6" /> 6
+          <input type="radio" name="rating" value="7" /> 7
+          <input type="radio" name="rating" value="8" /> 8
+          <input type="radio" name="rating" value="9" /> 9
+          <input type="radio" name="rating" value="10" checked /> 10 <!--autochecked-->
+        </div>
+        <div class="form-group">
+          <h3>Comments about your experience</h3>
+          <textarea
+            name="comments"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Tell us what you liked and/or did not like"
+          ></textarea> <!-- Area for input text-->
+        </div>
+        <input type="submit" value="Submit" class="btn" /> <!-- Submit button with CSS class btn-->
+      </form>
+    </div>
+  </body>
+</html>
